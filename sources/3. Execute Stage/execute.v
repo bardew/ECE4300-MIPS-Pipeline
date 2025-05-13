@@ -1,33 +1,26 @@
 `timescale 1ns / 1ps
 
 module execute (
-    input  wire         clk, rst,
-    input  wire [1:0]   ctlwb_in,
-    input  wire [2:0]   ctlm_in,
-    input  wire [31:0]  npc,
-    input  wire [31:0]  rdata1,
-    input  wire [31:0]  rdata2,
-    input  wire [31:0]  s_extend,
-    input  wire [4:0]   instr_2016,
-    input  wire [4:0]   instr_1511,
-    input  wire [1:0]   alu_op,
-    input  wire [5:0]   funct,
-    input  wire         alusrc,
-    input  wire         regdst,
-    output wire [1:0]   ctlwb_out,
-    output wire [2:0]   ctlm_out,
-    output wire [31:0]  branch_addr,
-    output wire [31:0]  alu_result_out,
-    output wire [31:0]  rdata2_out,
-    output wire [4:0]   muxout_out,
-    output wire         alu_zero_out
+    input  wire clk, rst,
+    input  wire [1:0] ctlwb_in,
+    input  wire [2:0] ctlm_in,
+    input  wire [31:0] npc, rdata1, rdata2, s_extend,
+    input  wire [4:0] instr_2016, instr_1511,
+    input  wire [1:0] alu_op,
+    input  wire [5:0] funct,
+    input  wire alusrc, regdst,
+    output wire [1:0] ctlwb_out,
+    output wire [2:0] ctlm_out,
+    output wire [31:0] branch_addr, alu_result_out, rdata2_out,
+    output wire [4:0] muxout_out,
+    output wire alu_zero_out
 );
 
     wire [31:0] alu_in2;
-    wire [2:0]  alu_control;
+    wire [2:0] alu_control;
     wire [31:0] alu_result;
-    wire        alu_zero;
-    wire [4:0]  regdst_muxout;
+    wire alu_zero;
+    wire [4:0] regdst_muxout;
     
     // Branch target computation (adder).  
     ex_adder adder_inst(
