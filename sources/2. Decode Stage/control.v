@@ -4,7 +4,7 @@ module control(
     input wire clk,
     input wire rst,
     input wire [5:0] opcode,
-    input wire [5:0] funct,   // Added funct field for R-type decoding
+    input wire [5:0] funct,
     output reg [1:0] wb,
     output reg [2:0] mem,
     output reg [3:0] ex
