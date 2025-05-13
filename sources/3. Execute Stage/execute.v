@@ -61,7 +61,6 @@ module execute (
     .y(regdst_muxout)
     );
 
-
     // EX/MEM Latch: pass signals to the memory stage
     ex_mem_latch ex_mem_reg(
         .clk(clk),
